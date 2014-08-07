@@ -5,6 +5,8 @@ subset_data2 <- data[(data$Date == "2/2/2007"),]
 subset_data <- rbind(subset_data1, subset_data2)
 x <- paste(as.vector(subset_data$Date), as.vector(subset_data$Time))
 z <- strptime(x, "%d/%m/%Y %H:%M:%S")
+png(filename = "/Users/suma/Desktop/Coursera/ExData_Plotting1/plot4.png", width = 480, height = 480, units = "px")
+
 par(mfrow = c(2,2))
 with(subset_data, {
   plot(z, as.numeric(subset_data$Global_active_power), type = "l", ylab = "Global Active Power", xlab = "", cex.lab = 0.9, cex.axis = 0.9)
@@ -17,4 +19,4 @@ with(subset_data, {
 })
 dev.copy(png, file = "/Users/suma/Desktop/Coursera/ExData_Plotting1/plot4.png")
 dev.off()
-png(filename = "/Users/suma/Desktop/Coursera/ExData_Plotting1/plot4.png", width = 480, height = 480, units = "px")
+
